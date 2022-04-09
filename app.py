@@ -222,9 +222,9 @@ def load_photo():
     if request.method == 'POST':
         file1 = request.files['file']
         file1.filename = 'load_photo.jpg'
-        path = os.path.join('./upload', file1.filename)
+        path = os.path.join('./static/img', file1.filename)
         file1.save(path)
-        return path
+        return render_template('2.html')
     elif request.method == 'GET':
         try:
             return render_template('2.html')
