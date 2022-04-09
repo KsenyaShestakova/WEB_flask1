@@ -224,12 +224,10 @@ def load_photo():
         file1.filename = 'load_photo.jpg'
         path = os.path.join('./static/img', file1.filename)
         file1.save(path)
+    try:
         return render_template('2.html')
-    elif request.method == 'GET':
-        try:
-            return render_template('2.html')
-        except jinja2.exceptions.TemplateNotFound:
-            return render_template('2_base.html')
+    except jinja2.exceptions.TemplateNotFound:
+        return render_template('2_base.html')
 
 
 if __name__ == '__main__':
